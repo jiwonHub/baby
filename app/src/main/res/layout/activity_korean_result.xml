@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <nl.dionsegijn.konfetti.xml.KonfettiView
+        android:id="@+id/konfettiView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBar"
+        style="?attr/toolbarStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/koreanResultBackButton"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_back"
+            android:layout_marginStart="20dp"/>
+
+        <TextView
+            android:id="@+id/koreanExamTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/korean"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/toolBar"/>
+
+    <ImageView
+        android:id="@+id/peachImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/peach"
+        app:layout_constraintTop_toBottomOf="@id/toolBar"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="30dp"
+        android:background="@drawable/shape_image"/>
+
+    <TextView
+        android:id="@+id/peachResult"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toEndOf="@id/peachImage"
+        app:layout_constraintTop_toTopOf="@id/peachImage"
+        app:layout_constraintBottom_toBottomOf="@id/peachImage"
+        android:layout_marginStart="45dp"
+        android:text="복숭아"
+        android:textSize="30dp"
+        android:gravity="center" />
+
+    <ImageView
+        android:id="@+id/pineAppleImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/pine_apple"
+        app:layout_constraintTop_toBottomOf="@id/peachImage"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="30dp"
+        android:background="@drawable/shape_image"/>
+
+    <TextView
+        android:id="@+id/pineAppleResult"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toEndOf="@id/pineAppleImage"
+        app:layout_constraintTop_toTopOf="@id/pineAppleImage"
+        app:layout_constraintBottom_toBottomOf="@id/pineAppleImage"
+        android:layout_marginStart="45dp"
+        android:text="파인애플"
+        android:textSize="30dp"
+        android:gravity="center" />
+
+    <ImageView
+        android:id="@+id/bananaImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/banana"
+        app:layout_constraintTop_toBottomOf="@id/pineAppleImage"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="30dp"
+        android:background="@drawable/shape_image"/>
+
+    <TextView
+        android:id="@+id/bananaResult"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toEndOf="@id/bananaImage"
+        app:layout_constraintTop_toTopOf="@id/bananaImage"
+        app:layout_constraintBottom_toBottomOf="@id/bananaImage"
+        android:layout_marginStart="45dp"
+        android:text="바나나"
+        android:textSize="30dp"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/resultText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/toMainButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/koreanResultCount"
+        android:layout_marginBottom="20dp"
+        android:text="총 "
+        android:textSize="30dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:layout_marginStart="20dp"/>
+    <TextView
+        android:id="@+id/koreanResultCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/toMainButton"
+        app:layout_constraintStart_toEndOf="@id/resultText1"
+        app:layout_constraintEnd_toStartOf="@id/resultText2"
+        android:layout_marginBottom="20dp"
+        android:text="0"
+        android:textSize="30dp"/>
+    <TextView
+        android:id="@+id/resultText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/toMainButton"
+        app:layout_constraintStart_toEndOf="@id/koreanResultCount"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="20dp"
+        android:text="개 맞았어요!"
+        android:textSize="30dp"/>
+
+    <Button
+        android:id="@+id/toMainButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="20dp"
+        android:text="@string/gotomain"
+        android:textSize="30sp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBar"
+        style="?attr/toolbarStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/mathResultBackButton"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/ic_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/mathStudyTitle"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/toolBar" />
+
+    <EditText
+        android:id="@+id/rexam1_1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolBar" />
+
+    <TextView
+        android:id="@+id/x1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="X"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam1_1"
+        app:layout_constraintStart_toEndOf="@id/rexam1_1"
+        app:layout_constraintTop_toTopOf="@id/rexam1_1" />
+
+    <EditText
+        android:id="@+id/rexam1_2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam1_1"
+        app:layout_constraintStart_toEndOf="@id/x1"
+        app:layout_constraintTop_toTopOf="@id/rexam1_1" />
+
+    <TextView
+        android:id="@+id/equal1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="="
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam1_2"
+        app:layout_constraintStart_toEndOf="@id/rexam1_2"
+        app:layout_constraintTop_toTopOf="@id/rexam1_2" />
+
+    <EditText
+        android:id="@+id/rresult1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:hint="?"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam1_1"
+        app:layout_constraintStart_toEndOf="@id/equal1"
+        app:layout_constraintTop_toTopOf="@id/rexam1_1" />
+
+    <EditText
+        android:id="@+id/rexam2_1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rexam1_1" />
+
+    <TextView
+        android:id="@+id/x2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="X"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam2_1"
+        app:layout_constraintStart_toEndOf="@id/rexam2_1"
+        app:layout_constraintTop_toTopOf="@id/rexam2_1" />
+
+    <EditText
+        android:id="@+id/rexam2_2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam2_1"
+        app:layout_constraintStart_toEndOf="@id/x1"
+        app:layout_constraintTop_toTopOf="@id/rexam2_1" />
+
+    <TextView
+        android:id="@+id/equal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="="
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam2_2"
+        app:layout_constraintStart_toEndOf="@id/rexam2_2"
+        app:layout_constraintTop_toTopOf="@id/rexam2_2" />
+
+    <EditText
+        android:id="@+id/rresult2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:hint="?"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam2_1"
+        app:layout_constraintStart_toEndOf="@id/equal1"
+        app:layout_constraintTop_toTopOf="@id/rexam2_1" />
+
+    <EditText
+        android:id="@+id/rexam3_1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rexam2_1" />
+
+    <TextView
+        android:id="@+id/x3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="X"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam3_1"
+        app:layout_constraintStart_toEndOf="@id/rexam3_1"
+        app:layout_constraintTop_toTopOf="@id/rexam3_1" />
+
+    <EditText
+        android:id="@+id/rexam3_2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam3_1"
+        app:layout_constraintStart_toEndOf="@id/x1"
+        app:layout_constraintTop_toTopOf="@id/rexam3_1" />
+
+    <TextView
+        android:id="@+id/equal3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="="
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam3_2"
+        app:layout_constraintStart_toEndOf="@id/rexam3_2"
+        app:layout_constraintTop_toTopOf="@id/rexam3_2" />
+
+    <EditText
+        android:id="@+id/rresult3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:hint="?"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam3_1"
+        app:layout_constraintStart_toEndOf="@id/equal1"
+        app:layout_constraintTop_toTopOf="@id/rexam3_1" />
+
+    <EditText
+        android:id="@+id/rexam4_1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rexam3_1" />
+
+    <TextView
+        android:id="@+id/x4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="X"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam4_1"
+        app:layout_constraintStart_toEndOf="@id/rexam4_1"
+        app:layout_constraintTop_toTopOf="@id/rexam4_1" />
+
+    <EditText
+        android:id="@+id/rexam4_2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam4_1"
+        app:layout_constraintStart_toEndOf="@id/x1"
+        app:layout_constraintTop_toTopOf="@id/rexam4_1" />
+
+    <TextView
+        android:id="@+id/equal4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="="
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam4_2"
+        app:layout_constraintStart_toEndOf="@id/rexam4_2"
+        app:layout_constraintTop_toTopOf="@id/rexam4_2" />
+
+    <EditText
+        android:id="@+id/rresult4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:hint="?"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam4_1"
+        app:layout_constraintStart_toEndOf="@id/equal1"
+        app:layout_constraintTop_toTopOf="@id/rexam4_1" />
+
+    <EditText
+        android:id="@+id/rexam5_1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rexam4_1" />
+
+    <TextView
+        android:id="@+id/x5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="X"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam5_1"
+        app:layout_constraintStart_toEndOf="@id/rexam5_1"
+        app:layout_constraintTop_toTopOf="@id/rexam5_1" />
+
+    <EditText
+        android:id="@+id/rexam5_2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam5_1"
+        app:layout_constraintStart_toEndOf="@id/x1"
+        app:layout_constraintTop_toTopOf="@id/rexam5_1" />
+
+    <TextView
+        android:id="@+id/equal5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="="
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam5_2"
+        app:layout_constraintStart_toEndOf="@id/rexam5_2"
+        app:layout_constraintTop_toTopOf="@id/rexam5_2" />
+
+    <EditText
+        android:id="@+id/rresult5"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:hint="?"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam5_1"
+        app:layout_constraintStart_toEndOf="@id/equal1"
+        app:layout_constraintTop_toTopOf="@id/rexam5_1" />
+
+    <EditText
+        android:id="@+id/rexam6_1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rexam5_1" />
+
+    <TextView
+        android:id="@+id/x6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="X"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam6_1"
+        app:layout_constraintStart_toEndOf="@id/rexam6_1"
+        app:layout_constraintTop_toTopOf="@id/rexam6_1" />
+
+    <EditText
+        android:id="@+id/rexam6_2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam6_1"
+        app:layout_constraintStart_toEndOf="@id/x1"
+        app:layout_constraintTop_toTopOf="@id/rexam6_1" />
+
+    <TextView
+        android:id="@+id/equal6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="="
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam6_2"
+        app:layout_constraintStart_toEndOf="@id/rexam6_2"
+        app:layout_constraintTop_toTopOf="@id/rexam6_2" />
+
+    <EditText
+        android:id="@+id/rresult6"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:hint="?"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam6_1"
+        app:layout_constraintStart_toEndOf="@id/equal1"
+        app:layout_constraintTop_toTopOf="@id/rexam6_1" />
+
+    <EditText
+        android:id="@+id/rexam7_1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rexam6_1" />
+
+    <TextView
+        android:id="@+id/x7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="X"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam7_1"
+        app:layout_constraintStart_toEndOf="@id/rexam7_1"
+        app:layout_constraintTop_toTopOf="@id/rexam7_1" />
+
+    <EditText
+        android:id="@+id/rexam7_2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam7_1"
+        app:layout_constraintStart_toEndOf="@id/x1"
+        app:layout_constraintTop_toTopOf="@id/rexam7_1" />
+
+    <TextView
+        android:id="@+id/equal7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="="
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam7_2"
+        app:layout_constraintStart_toEndOf="@id/rexam7_2"
+        app:layout_constraintTop_toTopOf="@id/rexam7_2" />
+
+    <EditText
+        android:id="@+id/rresult7"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/shape_rectangle"
+        android:gravity="center"
+        android:hint="?"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/rexam7_1"
+        app:layout_constraintStart_toEndOf="@id/equal1"
+        app:layout_constraintTop_toTopOf="@id/rexam7_1" />
+
+    <TextView
+        android:id="@+id/resultText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/mathResultButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/mathResultCount"
+        android:text="총 "
+        android:textSize="30dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:layout_marginStart="20dp"/>
+    <TextView
+        android:id="@+id/mathResultCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/mathResultButton"
+        app:layout_constraintStart_toEndOf="@id/resultText1"
+        app:layout_constraintEnd_toStartOf="@id/resultText2"
+        android:text="0"
+        android:textSize="30dp"/>
+    <TextView
+        android:id="@+id/resultText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/mathResultButton"
+        app:layout_constraintStart_toEndOf="@id/mathResultCount"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="개 맞았어요!"
+        android:textSize="30dp"/>
+
+    <Button
+        android:id="@+id/mathResultButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="메인 화면 가기!"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">baby</string>
+    <string name="MainTitle">어린이 마스터</string>
+    <string name="korean">국어</string>
+    <string name="english">영어</string>
+    <string name="math">수학</string>
+    <string name="koreanStudyTitle">국어</string>
+    <string name="koreanStudy">한글 단어 외우기</string>
+    <string name="koreanExam">단어 시험 보기</string>
+    <string name="mathStudy">구구단 외우기</string>
+    <string name="mathExam">구구단 시험 보기</string>
+    <string name="mathSong">구구단 노래 듣기</string>
+    <string name="mathStudyTitle">수학</string>
+    <string name="englishStudyTitle">영어</string>
+    <string name="englishStudy">영어 단어 외우기</string>
+    <string name="myTitle">내 정보</string>
+    <string name="profileDate">몇날몇시</string>
+    <string name="profileName">이름</string>
+    <string name="login">로그인 해주세요!!</string>
+    <string name="hint">정답 입력!</string>
+    <string name="correctConfirm">정답 확인하기!</string>
+    <string name="gotomain">메인화면 가기!</string>
+</resources>

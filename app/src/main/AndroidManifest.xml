@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Baby"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="false">
+        </activity>
+        <activity android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".korean.KoreanActivity"/>
+        <activity android:name=".korean.KoreanExamActivity"/>
+        <activity android:name=".korean.KoreanStudyActivity"/>
+        <activity android:name=".english.EnglishActivity"/>
+        <activity android:name=".math.MathActivity"/>
+        <activity android:name=".my.MyActivity"/>
+        <activity android:name=".korean.KoreanResultActivity"/>
+        <activity android:name=".english.EnglishExamActivity"/>
+        <activity android:name=".english.EnglishResultActivity"/>
+        <activity android:name=".english.EnglishStudyActivity"/>
+        <activity android:name=".math.MathStudyActivity"/>
+        <activity android:name=".math.MathSongActivity"/>
+        <activity android:name=".math.MathExamActivity"/>
+        <activity android:name=".math.MathResultActivity"/>
+
+        <activity
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
+                <data android:host="oauth"
+                    android:scheme="@string/kakao_redirection_scheme" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
