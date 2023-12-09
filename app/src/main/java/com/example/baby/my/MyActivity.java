@@ -84,8 +84,6 @@ public class MyActivity extends AppCompatActivity {
         String userName = preferences.getString("userName", "");
         String userImage = preferences.getString("userImage", "");
 
-        Log.d("user", userName);
-
         profileName.setText(userName);
         Glide.with(profileImage).load(userImage).into(profileImage);
 

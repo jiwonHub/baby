@@ -31,7 +31,7 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity { // 로그인하는 화면
 
     private Button loginButton;
     private Button logoutButton;
@@ -65,10 +65,10 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (UserApiClient.getInstance().isKakaoTalkLoginAvailable(LoginActivity.this)){
-                    UserApiClient.getInstance().loginWithKakaoTalk(LoginActivity.this, callback);
+                if (UserApiClient.getInstance().isKakaoTalkLoginAvailable(LoginActivity.this)){ // 카카오톡이 깔려있는지?
+                    UserApiClient.getInstance().loginWithKakaoTalk(LoginActivity.this, callback); // 깔려있으면 카카오톡으로 바로 로그인
                 }else{
-                    UserApiClient.getInstance().loginWithKakaoAccount(LoginActivity.this, callback);
+                    UserApiClient.getInstance().loginWithKakaoAccount(LoginActivity.this, callback); // 카카오 계정으로 직접 로그인
                 }
             }
         });
@@ -91,20 +91,24 @@ public class LoginActivity extends AppCompatActivity {
 
         SharedPreferences preferences = getSharedPreferences("kakao_user", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
+
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 
-        UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
+        UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() { // 로그인한 사용자 정보 가져오기
             @Override
             public Unit invoke(User user, Throwable throwable) {
 
                 if (user != null) {
                     assert user.getKakaoAccount() != null;
                     assert user.getKakaoAccount().getProfile() != null;
+
                     userName = (user.getKakaoAccount().getProfile().getNickname());
                     userImage = user.getKakaoAccount().getProfile().getProfileImageUrl();
                     userId = user.getId();
-                    userDB = FirebaseDatabase.getInstance().getReference().child(DB_USER);
+
+                    userDB = FirebaseDatabase.getInstance().getReference().child(DB_USER); // 디비 저장 경로
                     userDB.child(String.valueOf(userId)).child("userName").setValue(userName);
+
                     Log.d("user", userImage);
                     editor.putString("userName", userName);
                     editor.putString("userImage", userImage);

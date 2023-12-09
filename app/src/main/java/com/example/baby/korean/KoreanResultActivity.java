@@ -49,34 +49,41 @@ public class KoreanResultActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int correct = intent.getIntExtra("correct", 0);
         int wrong = intent.getIntExtra("wrong", 0);
-        int total = correct + wrong;
 
+        // 사용자 정답 입력 값 3개 받기
         fruit1 = intent.getStringExtra("fruit1");
         fruit2 = intent.getStringExtra("fruit2");
         fruit3 = intent.getStringExtra("fruit3");
 
+        // 주어진 랜덤 이미지 3개 받기
         selected1 = intent.getIntExtra("selected1", -1);
         selected2 = intent.getIntExtra("selected2", -1);
         selected3 = intent.getIntExtra("selected3", -1);
 
+        // 결과 화면 사용자 정답 결과 텍스트 3개
         resultText1 = findViewById(R.id.koreanResultText1);
         resultText2 = findViewById(R.id.koreanResultText2);
         resultText3 = findViewById(R.id.koreanResultText3);
 
+        // 결과 화면 이미지 3개
         resultImage1 = findViewById(R.id.koreanResultImage1);
         resultImage2 = findViewById(R.id.koreanResultImage2);
         resultImage3 = findViewById(R.id.koreanResultImage3);
 
+        // 몇개 맞췄는지
         resultCount.setText(String.valueOf(correct));
 
+        // 주어진 랜덤 이미지 3개 설정
         resultImage1.setImageResource(selected1);
         resultImage2.setImageResource(selected2);
         resultImage3.setImageResource(selected3);
 
+        // 결과 화면 사용자 정답 결과 텍스트 3개 설정
         resultText1.setText(fruit1);
         resultText2.setText(fruit2);
         resultText3.setText(fruit3);
 
+        // 틀린문제 빨간색 도색
         if (fruit1.equals("틀렸음!")){
             resultText1.setBackgroundResource(R.drawable.shape_rectangle_red);
         }
@@ -87,16 +94,17 @@ public class KoreanResultActivity extends AppCompatActivity {
             resultText3.setBackgroundResource(R.drawable.shape_rectangle_red);
         }
 
+        // 랭킹 데이터베이스 초기화
         rankDB = FirebaseDatabase.getInstance().getReference().child(DB_RANK).child(userName);
         rankDB.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                // 데이터 가져오기 성공 시 랭킹 포인트 가져오기
                 rankPont = snapshot.child("rankPoint").getValue(Integer.class) != null
                         ? snapshot.child("rankPoint").getValue(Integer.class) : 100;
-                if (total != 0){
-                    rankPont += (10*correct);
-                    rankPont -= (10*wrong);
-                }
+                // 가져온 값에 정답 문제 수, 틀린 문제 수 당 점수 합계산
+                rankPont += (10*correct);
+                rankPont -= (10*wrong);
                 updateRankPointInFirebase(rankPont);
             }
 
@@ -115,6 +123,7 @@ public class KoreanResultActivity extends AppCompatActivity {
         });
     }
 
+    // 점수 계산 후 업데이트
     private void updateRankPointInFirebase(int rankPoint){
         rankDB.child("rankPoint").setValue(rankPoint);
         rankDB.child("userName").setValue(userName);

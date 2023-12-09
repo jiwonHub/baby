@@ -26,19 +26,19 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "YourTag";
 
-    private void getAppKeyHash() {
-        try {
-            PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
-            for (Signature signature : info.signatures) {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                String hashKey = new String(Base64.encode(md.digest(), 0));
-                Log.e(TAG, "해시키 : " + hashKey);
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "해시키를 찾을 수 없습니다 : " + e);
-        }
-    }
+//    private void getAppKeyHash() {
+//        try {
+//            PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
+//            for (Signature signature : info.signatures) {
+//                MessageDigest md = MessageDigest.getInstance("SHA");
+//                md.update(signature.toByteArray());
+//                String hashKey = new String(Base64.encode(md.digest(), 0));
+//                Log.e(TAG, "해시키 : " + hashKey);
+//            }
+//        } catch (Exception e) {
+//            Log.e(TAG, "해시키를 찾을 수 없습니다 : " + e);
+//        }
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         ImageButton myButton = findViewById(R.id.myButton);
         Button backButton = findViewById(R.id.mainBackButton);
 
-        getAppKeyHash();
+//        getAppKeyHash();
 
         myButton.setOnClickListener(new View.OnClickListener() {
             @Override

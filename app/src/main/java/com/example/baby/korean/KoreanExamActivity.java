@@ -60,17 +60,23 @@ public class KoreanExamActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_korean_exam);
 
+        // 사용자 문제 입력 칸
         edit1 = findViewById(R.id.koreanExamEditText1);
         edit2 = findViewById(R.id.koreanExamEditText2);
         edit3 = findViewById(R.id.koreanExamEditText3);
 
+        // 문제 이미지
         examImage1 = findViewById(R.id.koreanExamImage1);
         examImage2 = findViewById(R.id.koreanExamImage2);
         examImage3 = findViewById(R.id.koreanExamImage3);
 
+        // 결과 확인 버튼
         resultButton = findViewById(R.id.resultButton);
+
+        // 이미지 6개 섞기
         selectedImages = getRandomImages(6);
 
+        // 섞은 이미지 앞에서부터 3개 찝어서 삽입
         examImage1.setImageResource(selectedImages.get(0));
         examImage2.setImageResource(selectedImages.get(1));
         examImage3.setImageResource(selectedImages.get(2));
@@ -79,6 +85,7 @@ public class KoreanExamActivity extends AppCompatActivity {
 
         resultButton.setOnClickListener(new View.OnClickListener() {
             Intent intent = new Intent(KoreanExamActivity.this, KoreanResultActivity.class);
+            // 랜덤 이미지3개
             Integer selected1 = selectedImages.get(0);
             Integer selected2 = selectedImages.get(1);
             Integer selected3 = selectedImages.get(2);
@@ -86,16 +93,22 @@ public class KoreanExamActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                // 주어진 이미지에 맞는 값을 입력했는지?
                 String fruit1 = checkAnswer(edit1, selected1);
                 String fruit2 = checkAnswer(edit2, selected2);
                 String fruit3 = checkAnswer(edit3, selected3);
 
+                // 선택된 3개의 랜덤 이미지
                 intent.putExtra("selected1", selected1);
                 intent.putExtra("selected2", selected2);
                 intent.putExtra("selected3", selected3);
+
+                // 사용자가 입력한 값
                 intent.putExtra("fruit1", fruit1);
                 intent.putExtra("fruit2", fruit2);
                 intent.putExtra("fruit3", fruit3);
+
+                // 점수 계산용 값
                 intent.putExtra("correct", correct);
                 intent.putExtra("wrong", wrong);
                 startActivity(intent);
@@ -110,6 +123,7 @@ public class KoreanExamActivity extends AppCompatActivity {
         });
     }
 
+    // 주어진 숫자만큼 리스트에 무작위 이미지 넣기(6개 최대)
     private List<Integer> getRandomImages(int count){
         List<Integer> result = new ArrayList<>();
         List<Integer> availableImages = new ArrayList<>(Arrays.asList(iamgeResources));
@@ -123,10 +137,12 @@ public class KoreanExamActivity extends AppCompatActivity {
         return result;
     }
 
+    // 정답 판가름 함수
     @SuppressLint("NonConstantResourceId")
     private String checkAnswer(EditText editText, Integer imageViewId) {
         String userAnswer = editText.getText().toString().trim();
 
+        // 주어진 이미지에 따라 정답 확인
         switch (imageViewId){
             case R.drawable.peach:
                 if (userAnswer.equals("복숭아")){
