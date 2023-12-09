@@ -35,8 +35,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private Button loginButton;
     private Button logoutButton;
-    private String userName;
-    private String userImage;
+    private String userName,userImage,userEmail;
     private Long userId;
     private DatabaseReference userDB;
 
@@ -105,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
                     userImage = user.getKakaoAccount().getProfile().getProfileImageUrl();
                     userId = user.getId();
                     userDB = FirebaseDatabase.getInstance().getReference().child(DB_USER);
-                    userDB.child("userName").setValue(userName);
+                    userDB.child(String.valueOf(userId)).child("userName").setValue(userName);
                     Log.d("user", userImage);
                     editor.putString("userName", userName);
                     editor.putString("userImage", userImage);

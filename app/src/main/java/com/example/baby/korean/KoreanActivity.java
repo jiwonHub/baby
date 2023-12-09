@@ -3,6 +3,7 @@ package com.example.baby.korean;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -19,6 +20,7 @@ public class KoreanActivity extends AppCompatActivity {
 
         TextView koreanStudy = findViewById(R.id.koreanStudy);
         TextView koreanExam = findViewById(R.id.koreanExam);
+        Button backButton = findViewById(R.id.koreanBackButton);
 
         koreanStudy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +34,12 @@ public class KoreanActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(KoreanActivity.this, KoreanExamActivity.class);
                 startActivity(intent);
+            }
+        });
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
 

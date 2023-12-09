@@ -22,6 +22,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.baby.DBKey;
 import com.example.baby.R;
+import com.example.baby.db.DatabaseInitializer;
+import com.example.baby.db.FriendsEntity;
+import com.example.baby.db.RoomDatabase;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -46,12 +49,15 @@ public class MyActivity extends AppCompatActivity {
 
 
     private TextView profileName;
-    private TextView profileDate;
     private ImageView profileImage;
     private RecyclerView recyclerView;
     private DatabaseReference rankDB;
     private List<RankModel> rankList = new ArrayList<>();
+    private List<FriendsEntity> friendsList = new ArrayList<>();
     private RankAdapter adapter;
+
+    private Button friendAddButton, myBackButton;
+    RoomDatabase roomDatabase;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,8 +65,8 @@ public class MyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my);
 
         profileName = findViewById(R.id.profileName);
-        profileDate = findViewById(R.id.profileDate);
         profileImage = findViewById(R.id.profileImage);
+        friendAddButton = findViewById(R.id.friendAddButton);
 
         rankDB = FirebaseDatabase.getInstance().getReference().child(DBKey.DB_RANK);
         recyclerView = findViewById(R.id.rankRecyclerView);
@@ -69,14 +75,11 @@ public class MyActivity extends AppCompatActivity {
         adapter = new RankAdapter(rankList);
         recyclerView.setAdapter(adapter);
 
+        myBackButton = findViewById(R.id.myBackButton);
+
+        roomDatabase = DatabaseInitializer.initDatabase(this);
+
         SharedPreferences preferences = getSharedPreferences("kakao_user", Context.MODE_PRIVATE);
-
-        Calendar currentTime = Calendar.getInstance();
-
-        int hour = currentTime.get(Calendar.HOUR_OF_DAY);
-        int minute = currentTime.get(Calendar.MINUTE);
-        String period = (hour >= 12) ? "오후" : "오전";
-        String formattedTime = String.format("%s %d:%02d", period, hour % 12, minute);
 
         String userName = preferences.getString("userName", "");
         String userImage = preferences.getString("userImage", "");
@@ -85,24 +88,32 @@ public class MyActivity extends AppCompatActivity {
 
         profileName.setText(userName);
         Glide.with(profileImage).load(userImage).into(profileImage);
-        profileDate.setText(formattedTime);
+
+        friendAddButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FriendAddDialog friendAddDialog = new FriendAddDialog(MyActivity.this, roomDatabase);
+                friendAddDialog.show();
+            }
+        });
 
         ValueEventListener rankValue = new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (friendsList != null){
+                    friendsList = roomDatabase.friendsDao().getAll();
+                }
+
                 rankList.clear();
                 for (DataSnapshot childSnapshot: snapshot.getChildren()){
                     String userName = childSnapshot.child("userName").getValue(String.class);
                     Integer rankPoint = childSnapshot.child("rankPoint").getValue(Integer.class);
-                    Log.d("rank", String.valueOf(rankPoint));
-
-                    if (userName != null && rankPoint != null){
-                        RankModel rankItem = new RankModel(userName,rankPoint);
-                        Log.d("rank", String.valueOf(rankItem));
-                        rankList.add(rankItem);
+                    FriendsEntity user = new FriendsEntity(userName);
+                    if (userName != null && rankPoint != null && friendsList.contains(user)){
+                            RankModel rankItem = new RankModel(userName,rankPoint);
+                            rankList.add(rankItem);
                     }
-                    Log.d("rank1", rankList.toString());
                 }
                 Collections.sort(rankList, (o1, o2) -> Integer.compare(o2.getRankPoint(), o1.getRankPoint()));
                 adapter.notifyDataSetChanged();
@@ -114,6 +125,13 @@ public class MyActivity extends AppCompatActivity {
             }
         };
         rankDB.addValueEventListener(rankValue);
+
+        myBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
 }

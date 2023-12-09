@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,10 +28,12 @@ import com.google.firebase.database.ValueEventListener;
 public class EnglishResultActivity extends AppCompatActivity {
 
     private DatabaseReference rankDB;
-    String userName;
+    String userName, fruit1, fruit2, fruit3;
     int rankPont = 0;
-    TextView resultCount;
+    int selected1, selected2, selected3;
+    TextView resultCount, resultText1,resultText2,resultText3;
     Button toMainButton, backButton;
+    ImageView resultImage1, resultImage2,resultImage3;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,6 +44,14 @@ public class EnglishResultActivity extends AppCompatActivity {
         toMainButton = findViewById(R.id.englishToMainButton);
         backButton = findViewById(R.id.englishResultBackButton);
 
+        resultText1 = findViewById(R.id.englishResultEditText1);
+        resultText2 = findViewById(R.id.englishResultEditText2);
+        resultText3 = findViewById(R.id.englishResultEditText3);
+
+        resultImage1 = findViewById(R.id.englishResultImage1);
+        resultImage2 = findViewById(R.id.englishResultImage2);
+        resultImage3 = findViewById(R.id.englishResultImage3);
+
         SharedPreferences preferences = getSharedPreferences("kakao_user", Context.MODE_PRIVATE);
         userName = preferences.getString("userName", "");
 
@@ -49,7 +60,34 @@ public class EnglishResultActivity extends AppCompatActivity {
         int wrong = intent.getIntExtra("wrong", 0);
         int total = correct + wrong;
 
+        fruit1 = intent.getStringExtra("fruit1");
+        fruit2 = intent.getStringExtra("fruit2");
+        fruit3 = intent.getStringExtra("fruit3");
+
+        selected1 = intent.getIntExtra("selected1", -1);
+        selected2 = intent.getIntExtra("selected2", -1);
+        selected3 = intent.getIntExtra("selected3", -1);
+
         resultCount.setText(String.valueOf(correct));
+
+        resultImage1.setImageResource(selected1);
+        resultImage2.setImageResource(selected2);
+        resultImage3.setImageResource(selected3);
+
+        resultText1.setText(fruit1);
+        resultText2.setText(fruit2);
+        resultText3.setText(fruit3);
+
+        if (fruit1.equals("틀렸음!")){
+            resultText1.setBackgroundResource(R.drawable.shape_rectangle_red);
+        }
+        if (fruit2.equals("틀렸음!")){
+            resultText2.setBackgroundResource(R.drawable.shape_rectangle_red);
+        }
+        if (fruit3.equals("틀렸음!")){
+            resultText3.setBackgroundResource(R.drawable.shape_rectangle_red);
+        }
+
 
         rankDB = FirebaseDatabase.getInstance().getReference().child(DB_RANK).child(userName);
         rankDB.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -75,12 +113,6 @@ public class EnglishResultActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(EnglishResultActivity.this, MainActivity.class);
                 startActivity(intent);
-            }
-        });
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
             }
         });
     }

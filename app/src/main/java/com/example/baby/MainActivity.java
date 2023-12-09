@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         TextView english = findViewById(R.id.englishButton);
         TextView math = findViewById(R.id.mathButton);
         ImageButton myButton = findViewById(R.id.myButton);
+        Button backButton = findViewById(R.id.mainBackButton);
 
         getAppKeyHash();
 
@@ -77,6 +79,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, MathActivity.class);
                 startActivity(intent);
+            }
+        });
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }

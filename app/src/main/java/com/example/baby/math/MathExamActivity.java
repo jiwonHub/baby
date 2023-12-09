@@ -5,48 +5,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.baby.MainActivity;
 import com.example.baby.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class MathExamActivity extends AppCompatActivity {
 
-    EditText edit1;
-    EditText edit2;
-    EditText edit3;
-    EditText edit4;
-    EditText edit5;
-    EditText edit6;
-    EditText edit7;
-    EditText edit8;
-    EditText edit9;
-    EditText edit10;
-    EditText edit11;
-    EditText edit12;
-    EditText edit13;
-    EditText edit14;
-    EditText result1;
-    EditText result2;
-    EditText result3;
-    EditText result4;
-    EditText result5;
-    EditText result6;
-    EditText result7;
-    Button resultButton;
-    boolean correct1 = true;
-    boolean correct2 = true;
-    boolean correct3 = true;
-    boolean correct4 = true;
-    boolean correct5 = true;
-    boolean correct6 = true;
-    boolean correct7 = true;
-
+    TextView edit1,edit2,edit3,edit4,edit5,edit6,edit7,edit8,edit9,edit10,edit11,edit12,edit13,edit14;
+    EditText result1,result2,result3,result4,result5,result6,result7;
+    Button resultButton, backButton;
     int correct = 0;
     int wrong = 0;
 
@@ -79,22 +55,18 @@ public class MathExamActivity extends AppCompatActivity {
         result6 = findViewById(R.id.result6);
         result7 = findViewById(R.id.result7);
         resultButton = findViewById(R.id.mathResultButton);
+        backButton = findViewById(R.id.mathExamBackButton);
+
+        int[] textViewIds = {
+                R.id.exam1_1, R.id.exam1_2, R.id.exam2_1, R.id.exam2_2,
+                R.id.exam3_1, R.id.exam3_2, R.id.exam4_1, R.id.exam4_2,
+                R.id.exam5_1, R.id.exam5_2, R.id.exam6_1, R.id.exam6_2,
+                R.id.exam7_1, R.id.exam7_2
+        };
+
+        setRandomNumbers(textViewIds);
 
         editTextList = new ArrayList<>();
-        editTextList.add(edit1);
-        editTextList.add(edit2);
-        editTextList.add(edit3);
-        editTextList.add(edit4);
-        editTextList.add(edit5);
-        editTextList.add(edit6);
-        editTextList.add(edit7);
-        editTextList.add(edit8);
-        editTextList.add(edit9);
-        editTextList.add(edit10);
-        editTextList.add(edit11);
-        editTextList.add(edit12);
-        editTextList.add(edit13);
-        editTextList.add(edit14);
         editTextList.add(result1);
         editTextList.add(result2);
         editTextList.add(result3);
@@ -103,12 +75,7 @@ public class MathExamActivity extends AppCompatActivity {
         editTextList.add(result6);
         editTextList.add(result7);
 
-
-
-
-
         resultButton.setOnClickListener(new View.OnClickListener() {
-
             Intent intent = new Intent(MathExamActivity.this, MathResultActivity.class);
             @Override
             public void onClick(View view) {
@@ -134,55 +101,15 @@ public class MathExamActivity extends AppCompatActivity {
                 String r6 = result6.getText().toString();
                 String r7 = result7.getText().toString();
                 if (checkAllEditText()){
-                    if (Integer.parseInt(e1)*Integer.parseInt(e2) == Integer.parseInt(r1)){
-                        correct++;
-                        correct1 = true;
-                    }else{
-                        wrong++;
-                        correct1 = false;
-                    }
-                    if (Integer.parseInt(e3)*Integer.parseInt(e4) == Integer.parseInt(r2)){
-                        correct++;
-                        correct2 = true;
-                    }else{
-                        wrong++;
-                        correct2 = false;
-                    }
-                    if (Integer.parseInt(e5)*Integer.parseInt(e6) == Integer.parseInt(r3)){
-                        correct++;
-                        correct3 = true;
-                    }else{
-                        wrong++;
-                        correct3 = false;
-                    }
-                    if (Integer.parseInt(e7)*Integer.parseInt(e8) == Integer.parseInt(r4)){
-                        correct++;
-                        correct4 = true;
-                    }else{
-                        wrong++;
-                        correct4 = false;
-                    }
-                    if (Integer.parseInt(e9)*Integer.parseInt(e10) == Integer.parseInt(r5)){
-                        correct++;
-                        correct5 = true;
-                    }else{
-                        wrong++;
-                        correct5 = false;
-                    }
-                    if (Integer.parseInt(e11)*Integer.parseInt(e12) == Integer.parseInt(r6)){
-                        correct++;
-                        correct6 = true;
-                    }else{
-                        wrong++;
-                        correct6 = false;
-                    }
-                    if (Integer.parseInt(e13)*Integer.parseInt(e14) == Integer.parseInt(r7)){
-                        correct++;
-                        correct7 = true;
-                    }else{
-                        wrong++;
-                        correct7 = false;
-                    }
+
+                    String correct1 = checkAnswer(Integer.parseInt(e1), Integer.parseInt(e2), Integer.parseInt(r1));
+                    String correct2 = checkAnswer(Integer.parseInt(e3), Integer.parseInt(e4), Integer.parseInt(r2));
+                    String correct3 = checkAnswer(Integer.parseInt(e5), Integer.parseInt(e6), Integer.parseInt(r3));
+                    String correct4 = checkAnswer(Integer.parseInt(e7), Integer.parseInt(e8), Integer.parseInt(r4));
+                    String correct5 = checkAnswer(Integer.parseInt(e9), Integer.parseInt(e10), Integer.parseInt(r5));
+                    String correct6 = checkAnswer(Integer.parseInt(e11), Integer.parseInt(e12), Integer.parseInt(r6));
+                    String correct7 = checkAnswer(Integer.parseInt(e13), Integer.parseInt(e14), Integer.parseInt(r7));
+
                     intent.putExtra("correct", correct);
                     intent.putExtra("wrong", wrong);
                     intent.putExtra("e1", e1);
@@ -199,13 +126,6 @@ public class MathExamActivity extends AppCompatActivity {
                     intent.putExtra("e12", e12);
                     intent.putExtra("e13", e13);
                     intent.putExtra("e14", e14);
-                    intent.putExtra("r1", r1);
-                    intent.putExtra("r2", r2);
-                    intent.putExtra("r3", r3);
-                    intent.putExtra("r4", r4);
-                    intent.putExtra("r5", r5);
-                    intent.putExtra("r6", r6);
-                    intent.putExtra("r7", r7);
                     intent.putExtra("correct1", correct1);
                     intent.putExtra("correct2", correct2);
                     intent.putExtra("correct3", correct3);
@@ -217,6 +137,13 @@ public class MathExamActivity extends AppCompatActivity {
                 }else{
                     Toast.makeText(getApplicationContext(), "빈칸을 모두 채워 주세요!", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MathExamActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -233,5 +160,30 @@ public class MathExamActivity extends AppCompatActivity {
             }
         }
         return allFilled;
+    }
+
+    private void setRandomNumbers(int[] textViewIds) {
+        // 1~9까지의 무작위 숫자를 각 텍스트뷰에 설정
+        for (int textViewId : textViewIds) {
+            int randomNumber = getRandomNumber(1, 10);
+            TextView textView = findViewById(textViewId);
+            textView.setText(String.valueOf(randomNumber));
+        }
+    }
+
+    private int getRandomNumber(int min, int max) {
+        Random random = new Random();
+        return random.nextInt(max - min) + min;
+    }
+
+    private String checkAnswer(int a, int b, int answer){
+        int result = a*b;
+        if (result == answer){
+            correct++;
+            return String.valueOf(answer);
+        }else {
+            wrong++;
+            return "X";
+        }
     }
 }

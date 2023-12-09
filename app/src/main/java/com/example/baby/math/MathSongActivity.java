@@ -23,22 +23,6 @@ public class MathSongActivity extends AppCompatActivity {
         openYoutubeLink("https://www.youtube.com/watch?v=NG2aBtqazkY");
     }
 
-    @SuppressLint("SetJavaScriptEnabled")
-    private void initWebView() {
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-
-        // WebViewClient 설정
-        webView.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                // 웹뷰에서 URL을 처리하도록 설정
-                view.loadUrl(url);
-                return true;
-            }
-        });
-    }
-
     private void openYoutubeLink(String youtubeLink) {
         // 유튜브 링크를 웹뷰에서 열기
         webView.loadUrl(youtubeLink);

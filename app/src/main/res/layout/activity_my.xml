@@ -55,7 +55,6 @@
         android:textSize="30sp"
         app:layout_constraintTop_toTopOf="@id/profileImage"
         app:layout_constraintStart_toEndOf="@id/profileImage"
-        app:layout_constraintBottom_toTopOf="@id/profileDate"
         android:layout_marginStart="100dp"
         />
     <View
@@ -65,18 +64,18 @@
         app:layout_constraintTop_toBottomOf="@id/profileName"
         app:layout_constraintStart_toStartOf="@id/profileName"
         app:layout_constraintEnd_toEndOf="@id/profileName"
-        app:layout_constraintBottom_toTopOf="@id/profileDate"
         android:background="@color/black"/>
-    <TextView
-        android:id="@+id/profileDate"
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/friendAddButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/profileName"
+        app:layout_constraintTop_toBottomOf="@id/view1"
         app:layout_constraintStart_toStartOf="@id/profileName"
         app:layout_constraintEnd_toEndOf="@id/profileName"
-        app:layout_constraintBottom_toBottomOf="@id/profileImage"
-        android:text="@string/profileDate"
-        android:textSize="30sp"/>
+        android:background="@drawable/shape_image"
+        android:layout_marginTop="10dp"
+        android:text="친구추가!"/>
 
     <View
         android:id="@+id/view2"

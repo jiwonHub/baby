@@ -18,6 +18,8 @@ public class EnglishStudyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_english_study);
 
+        backButton = findViewById(R.id.englishStudyBack);
+
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

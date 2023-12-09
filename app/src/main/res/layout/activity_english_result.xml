@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@id/toolBar"/>
 
     <ImageView
-        android:id="@+id/peachImage"
+        android:id="@+id/englishResultImage1"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/orange"
@@ -59,56 +59,56 @@
         android:background="@drawable/shape_image"/>
 
     <TextView
-        android:id="@+id/peachResult"
+        android:id="@+id/englishResultEditText1"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        app:layout_constraintStart_toEndOf="@id/peachImage"
-        app:layout_constraintTop_toTopOf="@id/peachImage"
-        app:layout_constraintBottom_toBottomOf="@id/peachImage"
+        app:layout_constraintStart_toEndOf="@id/englishResultImage1"
+        app:layout_constraintTop_toTopOf="@id/englishResultImage1"
+        app:layout_constraintBottom_toBottomOf="@id/englishResultImage1"
         android:layout_marginStart="45dp"
         android:text="orange"
         android:textSize="30dp"
         android:gravity="center" />
 
     <ImageView
-        android:id="@+id/pineAppleImage"
+        android:id="@+id/englishResultImage2"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/cherry"
-        app:layout_constraintTop_toBottomOf="@id/peachImage"
+        app:layout_constraintTop_toBottomOf="@id/englishResultImage1"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="30dp"
         android:background="@drawable/shape_image"/>
 
     <TextView
-        android:id="@+id/pineAppleResult"
+        android:id="@+id/englishResultEditText2"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        app:layout_constraintStart_toEndOf="@id/pineAppleImage"
-        app:layout_constraintTop_toTopOf="@id/pineAppleImage"
-        app:layout_constraintBottom_toBottomOf="@id/pineAppleImage"
+        app:layout_constraintStart_toEndOf="@id/englishResultImage2"
+        app:layout_constraintTop_toTopOf="@id/englishResultImage2"
+        app:layout_constraintBottom_toBottomOf="@id/englishResultImage2"
         android:layout_marginStart="45dp"
         android:text="cherry"
         android:textSize="30dp"
         android:gravity="center" />
 
     <ImageView
-        android:id="@+id/bananaImage"
+        android:id="@+id/englishResultImage3"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/grape"
-        app:layout_constraintTop_toBottomOf="@id/pineAppleImage"
+        app:layout_constraintTop_toBottomOf="@id/englishResultImage2"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="30dp"
         android:background="@drawable/shape_image"/>
 
     <TextView
-        android:id="@+id/bananaResult"
+        android:id="@+id/englishResultEditText3"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        app:layout_constraintStart_toEndOf="@id/bananaImage"
-        app:layout_constraintTop_toTopOf="@id/bananaImage"
-        app:layout_constraintBottom_toBottomOf="@id/bananaImage"
+        app:layout_constraintStart_toEndOf="@id/englishResultImage3"
+        app:layout_constraintTop_toTopOf="@id/englishResultImage3"
+        app:layout_constraintBottom_toBottomOf="@id/englishResultImage3"
         android:layout_marginStart="45dp"
         android:text="grape"
         android:textSize="30dp"

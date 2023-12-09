@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@id/toolBar"/>
 
     <ImageView
-        android:id="@+id/peachImage"
+        android:id="@+id/koreanResultImage1"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/peach"
@@ -59,56 +59,56 @@
         android:background="@drawable/shape_image"/>
 
     <TextView
-        android:id="@+id/peachResult"
+        android:id="@+id/koreanResultText1"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        app:layout_constraintStart_toEndOf="@id/peachImage"
-        app:layout_constraintTop_toTopOf="@id/peachImage"
-        app:layout_constraintBottom_toBottomOf="@id/peachImage"
+        app:layout_constraintStart_toEndOf="@id/koreanResultImage1"
+        app:layout_constraintTop_toTopOf="@id/koreanResultImage1"
+        app:layout_constraintBottom_toBottomOf="@id/koreanResultImage1"
         android:layout_marginStart="45dp"
         android:text="복숭아"
         android:textSize="30dp"
         android:gravity="center" />
 
     <ImageView
-        android:id="@+id/pineAppleImage"
+        android:id="@+id/koreanResultImage2"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/pine_apple"
-        app:layout_constraintTop_toBottomOf="@id/peachImage"
+        app:layout_constraintTop_toBottomOf="@id/koreanResultImage1"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="30dp"
         android:background="@drawable/shape_image"/>
 
     <TextView
-        android:id="@+id/pineAppleResult"
+        android:id="@+id/koreanResultText2"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        app:layout_constraintStart_toEndOf="@id/pineAppleImage"
-        app:layout_constraintTop_toTopOf="@id/pineAppleImage"
-        app:layout_constraintBottom_toBottomOf="@id/pineAppleImage"
+        app:layout_constraintStart_toEndOf="@id/koreanResultImage2"
+        app:layout_constraintTop_toTopOf="@id/koreanResultImage2"
+        app:layout_constraintBottom_toBottomOf="@id/koreanResultImage2"
         android:layout_marginStart="45dp"
         android:text="파인애플"
         android:textSize="30dp"
         android:gravity="center" />
 
     <ImageView
-        android:id="@+id/bananaImage"
+        android:id="@+id/koreanResultImage3"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/banana"
-        app:layout_constraintTop_toBottomOf="@id/pineAppleImage"
+        app:layout_constraintTop_toBottomOf="@id/koreanResultImage2"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="30dp"
         android:background="@drawable/shape_image"/>
 
     <TextView
-        android:id="@+id/bananaResult"
+        android:id="@+id/koreanResultText3"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        app:layout_constraintStart_toEndOf="@id/bananaImage"
-        app:layout_constraintTop_toTopOf="@id/bananaImage"
-        app:layout_constraintBottom_toBottomOf="@id/bananaImage"
+        app:layout_constraintStart_toEndOf="@id/koreanResultImage3"
+        app:layout_constraintTop_toTopOf="@id/koreanResultImage3"
+        app:layout_constraintBottom_toBottomOf="@id/koreanResultImage3"
         android:layout_marginStart="45dp"
         android:text="바나나"
         android:textSize="30dp"

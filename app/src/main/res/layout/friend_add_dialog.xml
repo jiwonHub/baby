@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/shape_image"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="친구의 이름을 적어주세요!"
+        android:textSize="30dp"/>
+
+    <EditText
+        android:id="@+id/dialogEditText"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:hint="이름"
+        android:gravity="center"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialogTitle"
+        android:background="@drawable/shape_rectangle"
+        android:layout_marginTop="20dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/dialogAdd"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialogEditText"
+        android:layout_marginTop="20dp"
+        android:text="확인!"
+        android:textSize="30dp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:background="@drawable/shape_rectangle_fill_black"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/dialogCancel"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialogEditText"
+        android:layout_marginTop="20dp"
+        android:text="취소!"
+        android:textSize="30dp"
+        android:background="@drawable/shape_rectangle_red"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

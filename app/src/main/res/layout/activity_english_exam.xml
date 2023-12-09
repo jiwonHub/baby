@@ -40,7 +40,7 @@
         app:layout_constraintTop_toBottomOf="@id/toolBar"/>
 
     <ImageView
-        android:id="@+id/peachImage"
+        android:id="@+id/englishExamImage1"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/orange"
@@ -50,56 +50,56 @@
         android:background="@drawable/shape_image"/>
 
     <EditText
-        android:id="@+id/orangeEditText"
+        android:id="@+id/englishExamEditText1"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        app:layout_constraintStart_toEndOf="@id/peachImage"
-        app:layout_constraintTop_toTopOf="@id/peachImage"
-        app:layout_constraintBottom_toBottomOf="@id/peachImage"
+        app:layout_constraintStart_toEndOf="@id/englishExamImage1"
+        app:layout_constraintTop_toTopOf="@id/englishExamImage1"
+        app:layout_constraintBottom_toBottomOf="@id/englishExamImage1"
         android:layout_marginStart="45dp"
         android:hint="@string/hint"
         android:gravity="center"
         android:background="@drawable/shape_rectangle"/>
 
     <ImageView
-        android:id="@+id/pineAppleImage"
+        android:id="@+id/englishExamImage2"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/cherry"
-        app:layout_constraintTop_toBottomOf="@id/peachImage"
+        app:layout_constraintTop_toBottomOf="@id/englishExamImage1"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="30dp"
         android:background="@drawable/shape_image"/>
 
     <EditText
-        android:id="@+id/cherryEditText"
+        android:id="@+id/englishExamEditText2"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        app:layout_constraintStart_toEndOf="@id/pineAppleImage"
-        app:layout_constraintTop_toTopOf="@id/pineAppleImage"
-        app:layout_constraintBottom_toBottomOf="@id/pineAppleImage"
+        app:layout_constraintStart_toEndOf="@id/englishExamImage2"
+        app:layout_constraintTop_toTopOf="@id/englishExamImage2"
+        app:layout_constraintBottom_toBottomOf="@id/englishExamImage2"
         android:layout_marginStart="45dp"
         android:hint="@string/hint"
         android:gravity="center"
         android:background="@drawable/shape_rectangle"/>
 
     <ImageView
-        android:id="@+id/bananaImage"
+        android:id="@+id/englishExamImage3"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/grape"
-        app:layout_constraintTop_toBottomOf="@id/pineAppleImage"
+        app:layout_constraintTop_toBottomOf="@id/englishExamImage2"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="30dp"
         android:background="@drawable/shape_image"/>
 
     <EditText
-        android:id="@+id/grapeEditText"
+        android:id="@+id/englishExamEditText3"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        app:layout_constraintStart_toEndOf="@id/bananaImage"
-        app:layout_constraintTop_toTopOf="@id/bananaImage"
-        app:layout_constraintBottom_toBottomOf="@id/bananaImage"
+        app:layout_constraintStart_toEndOf="@id/englishExamImage3"
+        app:layout_constraintTop_toTopOf="@id/englishExamImage3"
+        app:layout_constraintBottom_toBottomOf="@id/englishExamImage3"
         android:layout_marginStart="45dp"
         android:hint="@string/hint"
         android:gravity="center"

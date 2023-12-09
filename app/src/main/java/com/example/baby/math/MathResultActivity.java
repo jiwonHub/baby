@@ -29,30 +29,12 @@ public class MathResultActivity extends AppCompatActivity {
 
     private DatabaseReference rankDB;
     String userName;
+    String userId;
     int rankPont = 0;
     TextView resultCount;
     Button toMainButton;
-    EditText edit1;
-    EditText edit2;
-    EditText edit3;
-    EditText edit4;
-    EditText edit5;
-    EditText edit6;
-    EditText edit7;
-    EditText edit8;
-    EditText edit9;
-    EditText edit10;
-    EditText edit11;
-    EditText edit12;
-    EditText edit13;
-    EditText edit14;
-    EditText result1;
-    EditText result2;
-    EditText result3;
-    EditText result4;
-    EditText result5;
-    EditText result6;
-    EditText result7;
+    EditText edit1,edit2,edit3,edit4,edit5,edit6,edit7,edit8,edit9,edit10,edit11,edit12,edit13,edit14;
+    EditText result1,result2,result3,result4,result5,result6,result7;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -85,6 +67,7 @@ public class MathResultActivity extends AppCompatActivity {
 
         SharedPreferences preferences = getSharedPreferences("kakao_user", Context.MODE_PRIVATE);
         userName = preferences.getString("userName", "");
+        userId = preferences.getString("userId", "");
 
         Intent intent = getIntent();
         int correct = intent.getIntExtra("correct", 0);
@@ -104,20 +87,13 @@ public class MathResultActivity extends AppCompatActivity {
         String e12 = intent.getStringExtra("e12");
         String e13 = intent.getStringExtra("e13");
         String e14 = intent.getStringExtra("e14");
-        String r1 = intent.getStringExtra("r1");
-        String r2 = intent.getStringExtra("r2");
-        String r3 = intent.getStringExtra("r3");
-        String r4 = intent.getStringExtra("r4");
-        String r5 = intent.getStringExtra("r5");
-        String r6 = intent.getStringExtra("r6");
-        String r7 = intent.getStringExtra("r7");
-        boolean c1 = intent.getBooleanExtra("correct1", true);
-        boolean c2 = intent.getBooleanExtra("correct2", true);
-        boolean c3 = intent.getBooleanExtra("correct3", true);
-        boolean c4 = intent.getBooleanExtra("correct4", true);
-        boolean c5 = intent.getBooleanExtra("correct5", true);
-        boolean c6 = intent.getBooleanExtra("correct6", true);
-        boolean c7 = intent.getBooleanExtra("correct7", true);
+        String c1 = intent.getStringExtra("correct1");
+        String c2 = intent.getStringExtra("correct2");
+        String c3 = intent.getStringExtra("correct3");
+        String c4 = intent.getStringExtra("correct4");
+        String c5 = intent.getStringExtra("correct5");
+        String c6 = intent.getStringExtra("correct6");
+        String c7 = intent.getStringExtra("correct7");
 
         int total = correct + wrong;
 
@@ -135,33 +111,33 @@ public class MathResultActivity extends AppCompatActivity {
         edit12.setText(e12);
         edit13.setText(e13);
         edit14.setText(e14);
-        result1.setText(r1);
-        result2.setText(r2);
-        result3.setText(r3);
-        result4.setText(r4);
-        result5.setText(r5);
-        result6.setText(r6);
-        result7.setText(r7);
+        result1.setText(c1);
+        result2.setText(c2);
+        result3.setText(c3);
+        result4.setText(c4);
+        result5.setText(c5);
+        result6.setText(c6);
+        result7.setText(c7);
 
-        if (!c1){
+        if (c1.equals("X")){
             result1.setBackgroundResource(R.drawable.shape_rectangle_red);
         }
-        if (!c2){
+        if (c2.equals("X")){
             result2.setBackgroundResource(R.drawable.shape_rectangle_red);
         }
-        if (!c3){
+        if (c3.equals("X")){
             result3.setBackgroundResource(R.drawable.shape_rectangle_red);
         }
-        if (!c4){
+        if (c4.equals("X")){
             result4.setBackgroundResource(R.drawable.shape_rectangle_red);
         }
-        if (!c5){
+        if (c5.equals("X")){
             result5.setBackgroundResource(R.drawable.shape_rectangle_red);
         }
-        if (!c6){
+        if (c6.equals("X")){
             result6.setBackgroundResource(R.drawable.shape_rectangle_red);
         }
-        if (!c7){
+        if (c7.equals("X")){
             result7.setBackgroundResource(R.drawable.shape_rectangle_red);
         }
 
